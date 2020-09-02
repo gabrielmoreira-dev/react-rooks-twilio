@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import VideoChat from './VideoChat'
 
 const App = () => (
   <div className="app">
@@ -7,7 +8,7 @@ const App = () => (
       <h1>Video Chat</h1>
     </header>
     <main>
-      <p>VideoChat goes here</p>
+      <VideoChat />
     </main>
     <footer>
       <p>

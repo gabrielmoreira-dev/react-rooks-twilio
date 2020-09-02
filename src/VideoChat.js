@@ -1,4 +1,5 @@
 import React, { useState, useCallback } from 'react'
+import Lobby from './Lobby'
 
 const VideoChat = () => {
 
@@ -38,7 +39,29 @@ const VideoChat = () => {
         setToken(null);
     }, []);
 
-    return <div></div>
+    let render;
+
+    if (token) {
+        render = (
+            <div>
+                <p>Username: {username}</p>
+                <p>Room name: {roomName}</p>
+                <p>Token: {token}</p>
+            </div>
+        );
+    } else {
+        render = (
+            <Lobby
+                username={username}
+                roomName={roomName}
+                handleUsernameChange={handleUsernameChange}
+                handleRoomNameChange={handleRoomNameChange}
+                handleSubmit={handleSubmit}
+            />
+        );
+    }
+
+    return render
 }
 
 export default VideoChat
