@@ -11,9 +11,14 @@ const generateToken = config => {
     )
 }
 
-const videoToken = (identity, config) => {
+const videoToken = (identity, room, config) => {
     const token = generateToken(config)
     token.identity = identity
+
+    const grant = new VideoGrant()
+    grant.room = room
+    token.addGrant(grant)
+
     return token
 }
 

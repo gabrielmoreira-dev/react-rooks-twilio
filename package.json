@@ -16,7 +16,8 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.3",
-    "twilio": "^3.49.0"
+    "twilio": "^3.49.0",
+    "twilio-video": "^2.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

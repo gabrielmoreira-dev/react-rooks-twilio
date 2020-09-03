@@ -3,6 +3,7 @@ const bodyParser = require('body-parser')
 const pino = require('express-pino-logger')()
 const config = require('./config')
 const videoToken = require('./tokens')
+const port = 3001
 
 const app = express()
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -21,17 +22,17 @@ const sendTokenResponse = (token, res) => {
 app.get('/video/token', (req, res) => {
     const identity = req.query.identity;
     const room = req.query.room;
-    const token = videoToken(identity, config);
+    const token = videoToken(identity, room, config);
     sendTokenResponse(token, res);
 });
 
 app.post('/video/token', (req, res) => {
     const identity = req.body.identity;
     const room = req.body.room;
-    const token = videoToken(identity, config);
+    const token = videoToken(identity, room, config);
     sendTokenResponse(token, res);
 });
 
-app.listen(3001, () =>
+app.listen(port, () =>
     console.log('Server is running on localhost:3001')
 );
